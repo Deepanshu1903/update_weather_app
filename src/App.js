@@ -1,10 +1,20 @@
 import React, { useState } from 'react';
+import Card from '@material-ui/core/Card';
+import WbSunnyIcon from '@material-ui/icons/WbSunny';
+import AddIcon from '@material-ui/icons/Add';
 const api = {
   key: "08d4dd43364eef51d2c438a03cc49d50",
   base: "https://api.openweathermap.org/data/2.5/"
   
 }
-
+var cardStyle = {
+  display: 'block',
+  width: '15vw',
+  transitionDuration: '0.3s',
+  height: '15vw',
+  borderRadius:'30px',
+  magin:"50px"
+  }
 function App() {
   const [query, setQuery] = useState('');
   const [weather, setWeather] = useState({});
@@ -17,6 +27,7 @@ function App() {
           setWeather(result);
           setQuery('');
           console.log(result);
+          
         });
     }
   }
@@ -34,33 +45,37 @@ function App() {
   }
 
   return (
-    <div className={(typeof weather.main != "undefined") ? ((weather.main.temp > 16) ? 'app warm' : 'app') : 'app'}>
+    <div className="app warm">
       <main>
         <div className="search-box">
           <input 
             type="text"
             className="search-bar"
             placeholder="Search..."
-            onChange={e => setQuery(e.target.value)}
-            value={query}
-            onKeyPress={search}
+            
           />
         </div>
         {(typeof weather.main != "undefined") ? (
-        <div>
+      
+        <Card style={cardStyle} className="app">
+       
           <div className="location-box">
             <div className="location">{weather.name}, {weather.sys.country}</div>
             <div className="date">{dateBuilder(new Date())}</div>
           </div>
+          <WbSunnyIcon></WbSunnyIcon>
           <div className="weather-box">
             <div className="temp">
               {Math.round(weather.main.temp)}°c
             </div>
             <div className="weather">{weather.weather[0].main}</div>
           </div>
-        </div>
+       
+        </Card>
+        
         ) : ('')}
       </main>
+      <AddIcon/>
     </div>
   );
 }
