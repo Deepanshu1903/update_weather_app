@@ -8,12 +8,12 @@ const api = {
   
 }
 var cardStyle = {
-  display: 'block',
-  width: '15vw',
-  transitionDuration: '0.3s',
-  height: '15vw',
-  borderRadius:'30px',
-  magin:"50px"
+  display:"flex",
+  width: '10px',
+  height: '10px',
+  borderRadius:'1600px',
+  margin:"10px"
+  
   }
 function App() {
   const [query, setQuery] = useState('');

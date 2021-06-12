@@ -1,6 +1,8 @@
 import react,{useState} from "react";
 import Card from '@material-ui/core/Card';
 import AddIcon from '@material-ui/icons/Add';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
 import Man from "./man";
 
 
@@ -25,6 +27,8 @@ const CreateNode=(props)=>{
     .then(result => {
       setnode(result);
       settarget("");
+      
+      
       console.log(result);
       
     });
@@ -38,24 +42,36 @@ const CreateNode=(props)=>{
 
 return(
     <>
-    <div className="search-box">
-        <input 
+    
+    
+           <TextField 
           type="text"
-          className="search-bar"
+           class="app1"
           placeholder="Search..."
+           
           onChange={jun}
           
           
         />
-        <AddIcon onClick={tun}></AddIcon>
+        <Button onClick={tun} variant="outlined" color="primary" style={{"margin-left":"650px",
+        
+        "margin-top":"20px"}} ><AddIcon  ></AddIcon></Button>
+        
         
 
-      </div>
+      
+     
       {
       nmap.map((val,index)=>{
-          return  <Man sun={val}/>
+          return (
+             
+          <Man sun={val}/>
+         
+          )
       })
     }
+    
+    
    
     </>)
 }
