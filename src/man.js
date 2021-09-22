@@ -2,6 +2,7 @@ import react from "react";
 import Card from '@material-ui/core/Card';
 import CloudIcon from '@material-ui/icons/Cloud';
 import WbSunnyIcon from '@material-ui/icons/WbSunny';
+// import DehazeIcon from '@mui/icons-material/Dehaze';
 
 const Man=(props)=>{
     const dateBuilder = (d) => {
@@ -25,14 +26,14 @@ const Man=(props)=>{
         magin:"30px",
         padding:"30px",
         boxShadow:" 0px 5px rgba(0, 0, 0, 0.2)"
-
+        
         }     
 
 
 return(
   <>
  
-<div style={{"margin":"80px"}}>
+<div>
          
 {(typeof props.sun.main != "undefined") ? (
 <>
@@ -49,8 +50,9 @@ return(
         {Math.round(props.sun.main.temp)}°c
       </div>
      <div class="cloud">
-       {
-         (props.sun.weather[0].main=="Clouds")?
+       
+ {
+         (props.sun.weather[0].main==="Clouds")?
          <CloudIcon style={{"color":"rgb(0, 81, 255)",
          "width":"50px",
          "height":"50px"

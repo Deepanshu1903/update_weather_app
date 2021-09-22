@@ -53,23 +53,31 @@ return(
           
           
         />
-        <Button onClick={tun} variant="outlined" color="primary" style={{"margin-left":"650px",
-        
-        "margin-top":"20px"}} ><AddIcon  ></AddIcon></Button>
-        
+        <Button onClick={tun} variant="outlined" color="primary" style={{marginLeft:"650px",marginTop:"20px"}} ><AddIcon  ></AddIcon></Button>
+        <br/>
+        <br/>
         
 
       
-     
+   
+   
       {
+
       nmap.map((val,index)=>{
+     
           return (
-             
+              
+          <div style={{"float":"left","margin":"20px"}}> 
           <Man sun={val}/>
-         
+    </div>
           )
+         
+          
       })
+      
     }
+ 
+   
     
     
    
